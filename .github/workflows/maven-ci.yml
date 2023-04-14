@@ -14,18 +14,18 @@ jobs:
   # Runs the Maven test phase on the project
   maven_test:
   
-  - name: Cache build
-    uses: actions/cache@v3
-    with:
-      key: cached-build-${{github.sha}}
-      path: .
+    - name: Cache build
+      uses: actions/cache@v3
+      with:
+        key: cached-build-${{github.sha}}
+        path: .
 
-    runs-on: ubuntu-latest
+      runs-on: ubuntu-latest
 
-    permissions:
-      contents: read
+      permissions:
+        contents: read
 
-    steps:
+      steps:
 
     # The uses: keyword invokes a GitHub action:
     # https://github.com/marketplace/actions/checkout
