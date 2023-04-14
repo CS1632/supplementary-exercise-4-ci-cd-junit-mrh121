@@ -347,25 +347,26 @@ public class RentACatTest {
 	 * testBadgerPlayCalled method.
 	 */
 
-	/**
-	 * Test case for boolean returnCat(int id).
-	 * 
-	 * <pre>
-	 * Preconditions: c1, c2, and c3 are added to r using addCat(Cat c).
-	 *                c2 is rented.
-	 * Execution steps: Call returnCat(2).
-	 * Postconditions: Return value is true.
-	 *                 c2.returnCat() is called exactly once.
-	 *                 c1.returnCat() and c3.returnCat are never called.
-	 * </pre>
-	 * 
-	 * Hint: See sample_code/mockito_example/NoogieTest.java in the course
-	 * repository for an example of behavior verification. Refer to the
-	 * testBadgerPlayCalled method.
-	 */
-
 	@Test
 	public void testReturnCatNumCats3() {
 		// TODO
+		r.addCat(c1);
+		r.addCat(c2);
+		r.addCat(c3);
+		r.rentCat(2);
+
+		//Cat c4 = Mockito.mock(Cat.class);
+		//Mockito.when(c4.getRented()).thenReturn(true);
+
+		//Mockito.when(c2.returnCat()).thenReturn(true);
+		Mockito.when(r.returnCat(2)).thenReturn(true);
+		r.returnCat(2);
+
+		Mockito.verify(c2, Mockito.times(1)).returnCat();
+
+		Mockito.verify(c1, Mockito.times(0)).returnCat();
+		Mockito.verify(c3, Mockito.times(0)).returnCat();
+		//assertTrue("return value is not true", returnedCat);
+		
 	}
 }
