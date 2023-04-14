@@ -55,10 +55,10 @@ jobs:
   update_dependence_graph:
   
   - name: Restore cached build
-  uses: actions/cache@v3
-  with:
-    key: cached-build-${{github.sha}}
-    path: .
+    uses: actions/cache@v3
+    with:
+      key: cached-build-${{github.sha}}
+      path: .
 
     runs-on: ubuntu-latest
 
